@@ -1,0 +1,147 @@
+project_folder/
+├── index.html       # 主页
+├── chinese_survey.html # 针对中国人的问卷
+├── foreign_survey.html # 针对外国人的问卷
+├── feedback.html    # 反馈页面
+├── styles.css       # 样式表
+└── scripts.js       # JavaScript 文件
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷选择</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="intro" style="background-image: url('your-image.jpg');">
+            <h1>欢迎来到问卷网站</h1>
+            <p>请选择您的身份</p>
+            <div class="buttons">
+                <a href="chinese_survey.html" class="button">我是中国人</a>
+                <a href="foreign_survey.html" class="button">我是外国人</a>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷一：针对中国人的问卷</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="survey-container">
+        <h1>问卷一：针对中国人的问卷</h1>
+        <form id="surveyForm">
+            <!-- 添加问题，根据提供的问卷内容 -->
+            <label for="q1">问题1：...</label>
+            <input type="text" id="q1" name="q1" required>
+
+            <!-- 添加其他问题 -->
+
+            <button type="submit" class="button">提交</button>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感谢您的参与</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="feedback-container">
+        <h1>感谢您的反馈！</h1>
+        <p>您已成功提交问卷，我们会分析您的回答。</p>
+        <a href="index.html" class="button">返回主页</a>
+    </div>
+</body>
+</html>
+/* 样式基础设置 */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.intro {
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    background: #4CAF50;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #45a049;
+}
+
+/* 问卷页面 */
+.survey-container, .feedback-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 动态效果 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container, .survey-container, .feedback-container {
+    animation: fadeIn 1.5s ease;
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("surveyForm");
+    
+    if (form) {
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("感谢您的提交！");
+            window.location.href = "feedback.html";  // 提交后跳转到反馈页面
+        });
+    }
+});
